@@ -2502,25 +2502,29 @@ redirectUri: "https://jhonyaris74-lang.github.io/Project-CS/"
 const msalInstance =
 new msal.PublicClientApplication(msalConfig);
  
-async function loginMicrosoft() {
-try {
+window.loginMicrosoft = async function () {
  
+try {
+
 const result =
 await msalInstance.loginPopup({
 scopes: ["User.Read"]
 });
  
 alert(
-"Login berhasil: " +
+"Login berhasil : " +
 result.account.username
 );
  
+console.log(result);
+ 
 } catch(err) {
+ 
 console.error(err);
-alert(err);
+alert(err.message);
+ 
 }
 }
-
 </script>
 
 <button
@@ -2537,7 +2541,7 @@ padding:12px;
 border:none;
 border-radius:8px;
 ">
-LOGIN TEST
+Login Microsoft
 </button>
   
 <body>
