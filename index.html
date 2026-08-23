@@ -2470,5 +2470,58 @@ ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.c
     '<div style="font-family:system-ui;padding:40px;color:#C81E1E">Terjadi error saat memuat aplikasi:<br><pre style="white-space:pre-wrap">'+ (err && err.stack ? err.stack : err) +'</pre></div>';
 }
 </script>
+ 
+<script src="https://alcdn.msauth2.38.1/js/msal-browser.min.js
+ 
+<button
+onclick="loginMicrosoft()"
+style="
+position:fixed;
+top:10px;
+right:10px;
+z-index:9999;
+background:#1F4BD8;
+color:white;
+border:none;
+border-radius:6px;
+padding:10px 15px;
+cursor:pointer;
+">
+Login Microsoft
+20
+</button>
+ 
+<script>
+const msalConfig = {
+auth: {
+clientId: "868a498c-3ea1-49ad-b499-c35378790c3c",
+authority: "https://login.microsoftonline.com/6b937f07-afd5-45f0-bc7b-37b9575d6e86",
+redirectUri: "https://jhonyaris74-lang.github.io/Project-CS/"
+}
+};
+ 
+const msalInstance =
+new msal.PublicClientApplication(msalConfig);
+ 
+async function loginMicrosoft() {
+try {
+ 
+const result =
+await msalInstance.loginPopup({
+scopes: ["User.Read"]
+});
+ 
+alert(
+"Login berhasil: " +
+result.account.username
+);
+ 
+} catch(err) {
+console.error(err);
+alert(err);
+}
+}
+</script>
+  
 </body>
 </html>
