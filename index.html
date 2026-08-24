@@ -2471,45 +2471,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.c
 }
 </script>
  
-https://alcdn.msauth.net/browser/2.38.1/js/msal-browser.min.js
- 
-<script>
- 
-const msalConfig = {
-auth: {
-clientId: "868a498c-3ea1-49ad-b499-c35378790c3c",
-authority: "https://login.microsoftonline.com/6b937f07-afd5-45f0-bc7b-37b9575d6e86",
-redirectUri: "https://jhonyaris74-lang.github.io/Project-CS/"
-}
-};
- 
-const msalInstance =
-new msal.PublicClientApplication(msalConfig);
- 
-window.loginMicrosoft = async function () {
- 
-try {
- 
-const result =
-await msalInstance.loginPopup({
-scopes: ["User.Read"]
-});
- 
-alert(
-"Login berhasil : " +
-result.account.username
-);
- 
-} catch(err) {
- 
-console.error(err);
-alert(err.message);
-}
-};
-<script src="https://alcdnrowser/2.38.1/js/msal-browser.min.js>
- 
-<script>
- 
 window.loginMicrosoft = async function () {
 alert("TEST LOGIN");
 };
@@ -2517,21 +2478,24 @@ alert("TEST LOGIN");
 </script>
 
 <button
-id="btnLoginMicrosoft"
-onclick="window.loginMicrosoft()"
+onclick="loginMicrosoft()"
 style="
 position:fixed;
-top:70px;
-right:20px;
-z-index:99999;
+top:10px;
+right:10px;
+z-index:9999;
 background:red;
 color:white;
-padding:12px;
-border:none;
-border-radius:8px;
+padding:10px;
 ">
 Login Microsoft
 </button>
+ 
+<script>
+window.loginMicrosoft = function(){
+alert("TEST LOGIN");
+}
+</script>
   
 <body>
 </html>
