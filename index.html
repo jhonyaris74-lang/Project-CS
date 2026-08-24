@@ -2501,9 +2501,27 @@ redirectUri: "https://jhonyaris74-lang.github.io/Project-CS/"
  
 const msalInstance =
 new msal.PublicClientApplication(msalConfig);
+window.loginMicrosoft = async function(){
  
-window.loginMicrosoft = function(){
-alert("TEST LOGIN");
+try {
+ 
+const result =
+await msalInstance.loginPopup({
+scopes:["User.Read"]
+});
+ 
+alert(
+"Login berhasil : " +
+result.account.username
+);
+ 
+} catch(err) {
+ 
+console.error(err);
+alert(err.message);
+ 
+}
+ 
 }
  
 try {
