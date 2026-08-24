@@ -2502,11 +2502,9 @@ redirectUri: "https://jhonyaris74-lang.github.io/Project-CS/"
 const msalInstance =
 new msal.PublicClientApplication(msalConfig);
  
-<script>
 window.loginMicrosoft = function(){
 alert("TEST LOGIN");
 }
-</script>
  
 try {
 
@@ -2533,7 +2531,7 @@ alert(err.message);
 
 <button
 id="btnLoginMicrosoft"
-onclick="window.loginMicrosoft()"
+onclick="alert('LOGIN OK')"
 style="
 position:fixed;
 top:70px;
@@ -2548,5 +2546,5 @@ border-radius:8px;
 Login Microsoft
 </button>
   
-<body>
+</body>
 </html>
