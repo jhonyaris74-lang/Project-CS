@@ -2487,8 +2487,14 @@ window.loginMicrosoft = async function(){
 try {
 const result =
 await msalInstance.loginPopup({
-scopes: ["User.Read"]
+scopes: [
+"User.Read",
+"Sites.Read.All",
+"Sites.ReadWrite.All"
+]
 }); 
+window.graphToken =
+result.accessToken;
 alert(
 "Login berhasil : " +
 result.account.username
