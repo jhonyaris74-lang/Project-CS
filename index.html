@@ -2485,22 +2485,27 @@ const msalInstance =
 new msal.PublicClientApplication(msalConfig);
 window.loginMicrosoft = async function(){
 try {
-const result =
+const loginResult =
 await msalInstance.loginPopup({
-scopes: [
+scopes:["User.Read"]
+});
+ 
+const tokenResult =
+await msalInstance.acquireTokenSilent({
+scopes:[
 "User.Read",
-"Sites.Read.All",
-"Sites.ReadWrite.All"
-]
-}); 
+"Files.ReadWrite",
+"Sites.Read.All"
+],
+account: loginResult.account
+});
+ 
 window.graphToken =
-result.accessToken;
-console.log(result.accessToken);
-console.log(window.graphToken);
+tokenResult.accessToken;
 alert(
 "Login berhasil : " +
-result.account.username
-); 
+loginResult.account.username
+);
 console.log(result); 
 } catch(err) {
 console.error(err);
