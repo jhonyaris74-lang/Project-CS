@@ -2488,15 +2488,14 @@ try {
 const loginResult =
 await msalInstance.loginPopup({
 scopes:["User.Read"]
-});
- 
+}); 
 const tokenResult =
 await msalInstance.acquireTokenSilent({
-scopes:["User.Read"]
+scopes:["User.Read",
+"Files.ReadWrite",
+"Sites.Read.All"
+],
 });
- 
-window.graphToken =
-tokenResult.accessToken;
 alert(
 "Login berhasil : " +
 loginResult.account.username
