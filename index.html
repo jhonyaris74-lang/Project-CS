@@ -2472,25 +2472,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.c
 </script>
  
 <script src="https://alcdn.msauth.net/browser/2.38.1/js/msal-browser.min.js"></script>  
-  
-<button
-id="btnLoginMicrosoft"
-onclick="window.loginMicrosoft()"
-style="
-position:fixed;
-top:10px;
-right:10px;
-z-index:9999;
-background:#1F4BD8;
-color:white;
-border:none;
-border-radius:6px;
-padding:10px 15px;
-cursor:pointer;
-">
-Login Microsoft
-</button>
- 
 <script>
 const msalConfig = {
 auth: {
@@ -2504,12 +2485,10 @@ const msalInstance =
 new msal.PublicClientApplication(msalConfig);
 window.loginMicrosoft = async function(){
 try {
-
 const result =
 await msalInstance.loginPopup({
 scopes: ["User.Read"]
-});
- 
+}); 
 alert(
 "Login berhasil : " +
 result.account.username
@@ -2521,7 +2500,6 @@ alert(err.message);
 }
 };
 </script>
-
 <button
 id="btnLoginMicrosoft"
 onclick="window.loginMicrosoft()"
