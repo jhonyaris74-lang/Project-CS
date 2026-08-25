@@ -2503,7 +2503,6 @@ redirectUri: "https://jhonyaris74-lang.github.io/Project-CS/"
 const msalInstance =
 new msal.PublicClientApplication(msalConfig);
 window.loginMicrosoft = async function(){
-  
 try {
 
 const result =
@@ -2514,15 +2513,11 @@ scopes: ["User.Read"]
 alert(
 "Login berhasil : " +
 result.account.username
-);
- 
-console.log(result);
- 
+); 
+console.log(result); 
 } catch(err) {
- 
 console.error(err);
 alert(err.message);
- 
 }
 };
 </script>
