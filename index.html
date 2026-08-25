@@ -2492,12 +2492,7 @@ scopes:["User.Read"]
  
 const tokenResult =
 await msalInstance.acquireTokenSilent({
-scopes:[
-"User.Read",
-"Files.ReadWrite",
-"Sites.Read.All"
-],
-account: loginResult.account
+scopes:["User.Read"]
 });
  
 window.graphToken =
